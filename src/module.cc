@@ -12,7 +12,7 @@ void throwIfNotSuccess(napi_env env, napi_status status, char *msg)
 
 bool checkHiddenFile(const char16_t *filepath)
 {
-	DWORD result = GetFileAttributesW(reinterpret_cast<const wchar_t *>(filepath));
+	DWORD const result = GetFileAttributesW(filepath);
 	if (result != 0xFFFFFFFF)
 	{
 		return !!(result & FILE_ATTRIBUTE_HIDDEN);

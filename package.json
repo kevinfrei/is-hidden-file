@@ -14,9 +14,8 @@
     "win32"
   ],
   "scripts": {
-    "install": "node src/install.js",
-    "test": "jest",
-    "native_build": "node-gyp rebuild"
+    "install": "cmake-js compile",
+    "test": "jest"
   },
   "keywords": [
     "file",
@@ -32,6 +31,7 @@
     "jest": "^29.0.2"
   },
   "dependencies": {
+    "cmake-js": "^6.3.2",
     "cross-spawn": "^7.0.3"
   }
 }
