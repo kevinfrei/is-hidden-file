@@ -1,7 +1,4 @@
 #include <node_api.h>
-#include <assert.h>
-#include <tchar.h>
-#include <iostream>
 #include <windows.h>
 using namespace std;
 
@@ -13,9 +10,9 @@ void throwIfNotSuccess(napi_env env, napi_status status, char *msg)
 	}
 }
 
-bool checkHiddenFile(string const &FilePath)
+bool checkHiddenFile(const char16_t *filepath)
 {
-	DWORD const result = GetFileAttributesA(FilePath.c_str());
+	DWORD result = GetFileAttributesW(reinterpret_cast<const wchar_t *>(filepath));
 	if (result != 0xFFFFFFFF)
 	{
 		return !!(result & FILE_ATTRIBUTE_HIDDEN);
@@ -36,14 +33,15 @@ napi_value isHiddenFile(napi_env env, napi_callback_info info)
 
 	size_t str_size;
 	size_t str_size_read;
-	napi_get_value_string_utf8(env, argv[0], NULL, 0, &str_size);
-	char *path;
-	path = (char *)calloc(str_size + 1, sizeof(char));
-	str_size = str_size + 1;
-	napi_get_value_string_utf8(env, argv[0], path, str_size, &str_size_read);
+	napi_get_value_string_utf16(env, argv[0], nullptr, 0, &str_size);
+  str_size++;
+	char16_t *path = (char16_t *)calloc(str_size, sizeof(char16_t));
+	napi_get_value_string_utf16(env, argv[0], path, str_size, &str_size_read);
 
 	napi_value result;
 	status = napi_get_boolean(env, checkHiddenFile(path), &result);
+  // Don't forget to free the memory...
+  free(path);
 	return result;
 }
 
