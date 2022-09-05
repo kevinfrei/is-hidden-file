@@ -12,7 +12,7 @@ void throwIfNotSuccess(napi_env env, napi_status status, char *msg)
 
 bool checkHiddenFile(const char16_t *filepath)
 {
-	DWORD const result = GetFileAttributesW(filepath);
+	DWORD const result = GetFileAttributesW((LPCWSTR)filepath);
 	if (result != 0xFFFFFFFF)
 	{
 		return !!(result & FILE_ATTRIBUTE_HIDDEN);
@@ -51,7 +51,7 @@ napi_value Init(napi_env env, napi_value exports){
 	throwIfNotSuccess(env, napi_create_function(env, "isHiddenFile", sizeof("isHiddenFile"), isHiddenFile, NULL, &fn), "Unable to wrap native function");
 
 	throwIfNotSuccess(env, napi_set_named_property(env, exports, "isHiddenFile", fn), "Unable to populate exports");
-
+  return fn;
 }
 
 NAPI_MODULE(NODE_GYP_MODULE_NAME, Init)

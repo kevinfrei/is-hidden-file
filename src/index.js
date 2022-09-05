@@ -9,14 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @returns {boolean} Result
 */
 
-const isHiddenFile = (path) => {
-    switch (process.platform) {
-        case "win32":
-            const { isHiddenFile: checkHiddenFileWin } = require("./binding");
-            return checkHiddenFileWin(path)
-        default:
-            return /(^|\/)\.[^\/\.]/g.test(path)
-    }
+function isHiddenFile(path) {
+  if (process.platform === "win32") {
+    const winHidden = require('../build/Release/is-win32-hidden');
+    return winHidden(path);
+  } else {
+    return /(^|\/)\.[^\/\.]/g.test(path)
+  }
 }
 
 exports.isHiddenFile = isHiddenFile
