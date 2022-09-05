@@ -1,5 +1,5 @@
 {
-  "name": "is-hidden-file",
+  "name": "@freik/is-hidden-file",
   "version": "0.2.0",
   "description": "Check if a file/folder is hidden on node js that works on any platform. Forked from https://github.com/kimlimjustin/is-hidden-file",
   "main": "src/index.js",
