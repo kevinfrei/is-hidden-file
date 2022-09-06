@@ -1,6 +1,6 @@
 {
   "name": "@freik/is-hidden-file",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Check if a file/folder is hidden on node js that works on any platform. Forked from https://github.com/kimlimjustin/is-hidden-file",
   "main": "src/index.js",
   "author": "Kevin Frei <kevinfrei@hotmail.com>",
@@ -16,8 +16,9 @@
   "scripts": {
     "install": "run-script-os",
     "install:win32": "cmake-js compile && yarn run cleanup",
+    "install:default": "echo No custom build step required",
     "test": "jest",
-    "cleanup": "echo build\\Release\\is-win32-hidden.node .\\"
+    "cleanup": "echo TODO: clean up the mess left by cmake"
   },
   "keywords": [
     "file",
