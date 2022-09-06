@@ -1,12 +1,12 @@
 <div align="center">
 
 # is-hidden-file
-[![npm version](https://img.shields.io/badge/dynamic/json?color=317EFB&logo=npm&style=for-the-badge&label=Version&query=version&url=https%3A%2F%2Funpkg.com%2Fis-hidden-file%40latest%2Fpackage.json)](https://www.npmjs.com/package/is-hidden-file)
+[![npm version](https://img.shields.io/badge/dynamic/json?color=317EFB&logo=npm&style=for-the-badge&label=Version&query=version&url=https%3A%2F%2Funpkg.com%2Fis-hidden-file%40latest%2Fpackage.json)](https://www.npmjs.com/package/@freik/is-hidden-file)
 </div>
 
-> Check if a file/folder is hidden on all platforms.
+> Check if a file/folder is hidden on all platforms. Forked to use CMake (reliable!) instead of node-gyp (inscrutably broken constantly), with other fixes (like an obvious memory leak)
 
-- Unix: Check file name starts with `.`.
+- *nix: Check file name starts with `.`.
 - Windows: Check if file hidden using native code.
 
 ## Installation
