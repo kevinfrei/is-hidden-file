@@ -4,5 +4,5 @@
  * @license MIT
  * @param {string} path - file/folder absolute path
  * @returns {boolean} Result
-*/
+ */
 export function isHiddenFile(path: string): boolean;

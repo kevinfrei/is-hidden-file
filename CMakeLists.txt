@@ -11,4 +11,5 @@ add_library(
 )
 set_target_properties(is-win32-hidden PROPERTIES PREFIX "" SUFFIX ".node")
 target_link_libraries(is-win32-hidden ${CMAKE_JS_LIB})
+# This doesn't seem necessary...
 # execute_process(COMMAND echo link /def:${CMAKE_JS_NODELIB_DEF} /out:${CMAKE_JS_NODELIB_TARGET} ${CMAKE_STATIC_LINKER_FLAGS})
