@@ -1,4 +1,4 @@
-// This is weird, but it works. The native module thing is kinda picky :/ 
+// This is weird, but it works. The native module thing is kinda picky :/
 import { isHiddenFile } from '../../lib/cjs/index.js';
 import * as path from 'path';
 import { platform } from 'os';

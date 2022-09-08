@@ -1,18 +1,17 @@
 {
   "name": "@freik/is-hidden-file",
-  "version": "1.9.12",
+  "version": "1.9.13",
   "description": "Check if a file/folder is hidden on node js that works on any platform. Forked from https://github.com/kimlimjustin/is-hidden-file",
-  "main": "src/index.js",
   "author": "Kevin Frei <kevinfrei@hotmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/kevinfrei/is-hidden-file.git"
   },
-  "os": [
-    "darwin",
-    "linux",
-    "win32"
-  ],
+  "os": ["darwin", "linux", "win32"],
+  "module": "./lib/esm/index.js",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/esm/index.d.ts",
+
   "scripts": {
     "install": "run-script-os",
     "install:win32": "cmake-js compile && yarn run cleanup",
@@ -26,15 +25,7 @@
     "format": "er format",
     "cleanup": "cmd /c rd /s /q build"
   },
-  "keywords": [
-    "file",
-    "is",
-    "hidden",
-    "dot",
-    "is-hidden",
-    "windows",
-    "linux"
-  ],
+  "keywords": ["file", "is", "hidden", "dot", "is-hidden", "windows", "linux"],
   "license": "MIT",
   "devDependencies": {
     "@freik/build-tools": "^3.2.4",
@@ -49,10 +40,8 @@
     "cmake-js": "^6.3.2",
     "run-script-os": "^1.1.6"
   },
-  "files": [
-    "lib/esm/*",
-    "lib/cjs/*",
-    "src/module.cc",
-    "CmakeLists.txt"
-  ]
+  "files": ["lib/esm/*", "lib/cjs/*", "src/module.cc", "CmakeLists.txt"],
+  "engines": {
+    "node": "^14.13.1 || >= 16.0.0"
+  }
 }
