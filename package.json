@@ -1,6 +1,6 @@
 {
   "name": "@freik/is-hidden-file",
-  "version": "1.9.11",
+  "version": "1.9.12",
   "description": "Check if a file/folder is hidden on node js that works on any platform. Forked from https://github.com/kimlimjustin/is-hidden-file",
   "main": "src/index.js",
   "author": "Kevin Frei <kevinfrei@hotmail.com>",
@@ -24,7 +24,7 @@
     "prepublishOnly": "yarn test",
     "test": "jest --config jestconfig.json",
     "format": "er format",
-    "cleanup": "rimraf build"
+    "cleanup": "cmd /c rd /s /q build"
   },
   "keywords": [
     "file",
