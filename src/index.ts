@@ -13,7 +13,7 @@ type hiddenFileType = (path: string) => boolean;
 export function isHiddenFile(path: string): boolean {
   if (process.platform === 'win32') {
     const winHidden: hiddenFileType =
-      require('../build/Release/is-win32-hidden') as hiddenFileType;
+      require('../is-win32-hidden') as hiddenFileType;
     return winHidden(path);
   } else {
     // Regex's are awful, and unmaintainllable, and with a passable JIT, not
