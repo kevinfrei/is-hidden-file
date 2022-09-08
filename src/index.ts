@@ -23,10 +23,10 @@ export function isHiddenFile(path: string): boolean {
     const ofs: number = path.lastIndexOf('/') + 1;
     // If we have no basename, or if the first character isn't a dot,
     // it's not hidden
-    if (path.length <= ofs || path[ofs] !== '.') {
+    if (path.length <= ofs + 1 || path[ofs] !== '.') {
       return false;
     }
     // We're starting with a '.' so we just need to check for dirs
-    return path.length > ofs + 1 || path[ofs + 1] !== '.';
+    return (path.length > ofs + 2) || path[ofs + 1] !== '.';
   }
 }
