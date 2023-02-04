@@ -27,6 +27,6 @@ export function isHiddenFile(path: string): boolean {
       return false;
     }
     // We're starting with a '.' so we just need to check for dirs
-    return (path.length > ofs + 2) || path[ofs + 1] !== '.';
+    return path.length > ofs + 2 || path[ofs + 1] !== '.';
   }
 }
