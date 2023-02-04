@@ -6,7 +6,7 @@
 
 </div>
 
-> Check if a file/folder is hidden on all platforms. Forked to use CMake
+> Check if a file/folder is hidden on all platforms. Forked from [https://github.com/kimlimjustin/is-hidden-file](kimlimjustin/is-hidden-file) to use CMake
 > (reliable!) instead of node-gyp (inscrutably broken constantly), with other
 > fixes (like an obvious memory leak)
 
