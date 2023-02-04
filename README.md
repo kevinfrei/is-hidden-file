@@ -6,9 +6,20 @@
 
 </div>
 
-> Check if a file/folder is hidden on all platforms. Forked to use CMake
-> (reliable!) instead of node-gyp (inscrutably broken constantly), with other
-> fixes (like an obvious memory leak)
+> Check if a file/folder is hidden on all platforms. Forked from
+> [kimlimjustin/is-hidden-file](https://github.com/kimlimjustin/is-hidden-file)
+> to use CMake (reliable!) instead of node-gyp (inscrutably broken constantly),
+> with other fixes (like an obvious memory leak)
+
+**Note** This will slow down your `yarn install`/`npm install`s, particularly on
+Windows! The speed hit is unavoidable. Package managers are terrible at
+understanding build dependencies, so they'll rebuild this whenever it gets
+installed, even if nothing changed. And the rebuild invokes some platform
+specific shim which is kind of slow. Once the shim is done, Linux and MacOS move
+merrily on their way. Windows, however, invokes the cmake build system, followed
+by the C++ compiler & linker, all of which is quite slow. The solution to this
+is to get the NodeJS runtime to add support for this to the `path` or `fs`
+modules...
 
 - \*nix: Check file name starts with `.`.
 - Windows: Check if file hidden using native code.
