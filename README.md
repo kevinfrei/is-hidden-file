@@ -2,7 +2,7 @@
 
 # is-hidden-file
 
-[![npm version](https://img.shields.io/badge/dynamic/json?color=317EFB&logo=npm&style=for-the-badge&label=Version&query=version&url=https%3A%2F%2Funpkg.com%2Fis-hidden-file%40latest%2Fpackage.json)](https://www.npmjs.com/package/@freik/is-hidden-file)
+[Latest Version on NPM here](https://www.npmjs.com/package/@freik/is-hidden-file)
 
 </div>
 
