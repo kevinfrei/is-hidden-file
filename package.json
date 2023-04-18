@@ -1,12 +1,9 @@
 {
   "name": "@freik/is-hidden-file",
   "version": "1.10.10",
-  "description": "Check if a file/folder is hidden on node js that works on any platform. Forked from https://github.com/kimlimjustin/is-hidden-file",
+  "description": "Check if a file/folder is hidden on node js that works on any platform.",
   "author": "Kevin Frei <kevinfrei@hotmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kevinfrei/is-hidden-file.git"
-  },
+  "repository": "github:kevinfrei/is-hidden-file",
   "os": ["darwin", "linux", "win32"],
   "module": "./lib/esm/index.js",
   "main": "./lib/cjs/index.js",
@@ -42,5 +39,6 @@
   "files": ["lib/esm/*", "lib/cjs/*", "src/module.cc", "CmakeLists.txt"],
   "engines": {
     "node": "^14.13.1 || >= 16.0.0"
-  }
+  },
+  "packageManager": "yarn@3.5.0"
 }
