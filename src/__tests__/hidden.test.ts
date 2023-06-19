@@ -12,11 +12,12 @@ test('Is src folder hidden?', () => {
   expect(isHiddenFile(path.join(__dirname, '..'))).toBe(false);
   expect(isHiddenFile(path.join(__dirname, '..', '..', 'src'))).toBe(false);
 });
+const isWin = platform() === 'win32';
 
 test('A bunch more intersting tests than just those two', () => {
   expect(isHiddenFile('.')).toBe(false);
   expect(isHiddenFile('..')).toBe(false);
-  if (platform() === 'win32') {
+  if (isWin) {
     // On Windows, this checks actual file attributes
     process.chdir('src/__tests__');
   } else {
@@ -30,12 +31,12 @@ test('A bunch more intersting tests than just those two', () => {
     expect(isHiddenFile('/.a.c')).toBe(true);
     expect(isHiddenFile('/.a..c')).toBe(true);
   }
-  expect(isHiddenFile('.a')).toBe(true);
-  expect(isHiddenFile('..b')).toBe(true);
+  expect(isHiddenFile('.a')).toBe(!isWin);
+  expect(isHiddenFile('..b')).toBe(!isWin);
   expect(isHiddenFile('a.')).toBe(false);
   expect(isHiddenFile('b.a')).toBe(false);
-  expect(isHiddenFile('.a.')).toBe(true);
-  expect(isHiddenFile('.b.a')).toBe(true);
+  expect(isHiddenFile('.a.')).toBe(!isWin);
+  expect(isHiddenFile('.b.a')).toBe(!isWin);
   expect(isHiddenFile('./a.')).toBe(false);
   expect(isHiddenFile('../b.a')).toBe(false);
   expect(isHiddenFile('..a/a.c')).toBe(false);

@@ -1,6 +1,6 @@
 {
   "name": "@freik/is-hidden-file",
-  "version": "1.10.11",
+  "version": "1.10.12",
   "description": "Check if a file/folder is hidden on node js that works on any platform.",
   "author": "Kevin Frei <kevinfrei@hotmail.com>",
   "repository": "github:kevinfrei/is-hidden-file",
