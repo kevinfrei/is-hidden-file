@@ -7,6 +7,7 @@
  * @param {string} path - file/folder absolute path
  * @returns {boolean} Result
  */
+
 export function isHiddenFile(path: string): boolean {
   if (process.platform === 'win32') {
     return (require('../is-win32-hidden') as (path: string) => boolean)(path);
