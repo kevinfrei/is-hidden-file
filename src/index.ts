@@ -10,19 +10,22 @@
 
 export function isHiddenFile(path: string): boolean {
   if (process.platform === 'win32') {
-    return (require('../is-win32-hidden') as (path: string) => boolean)(path);
-  } else {
-    // Regex's are awful, and unmaintainable, and with a passable JIT, not
-    // at all faster than just running this very simple code
-
-    // If there's no '/' it returns -1, so we start at 0 :)
-    const ofs: number = path.lastIndexOf('/') + 1;
-    // If we have no basename, or if the first character isn't a dot,
-    // it's not hidden
-    if (path.length <= ofs + 1 || path[ofs] !== '.') {
-      return false;
+    try {
+      return (require('../is-win32-hidden') as (path: string) => boolean)(path);
+    } catch (e) {
+      // Fallback to the unix/macos version, if we can't load the native binary
     }
-    // We're starting with a '.' so we just need to check for dirs
-    return path.length > ofs + 2 || path[ofs + 1] !== '.';
   }
+  // Regex's are awful, and unmaintainable, and with a passable JIT, not
+  // at all faster than just running this very simple code
+
+  // If there's no '/' it returns -1, so we start at 0 :)
+  const ofs: number = path.lastIndexOf('/') + 1;
+  // If we have no basename, or if the first character isn't a dot,
+  // it's not hidden
+  if (path.length <= ofs + 1 || path[ofs] !== '.') {
+    return false;
+  }
+  // We're starting with a '.' so we just need to check for dirs
+  return path.length > ofs + 2 || path[ofs + 1] !== '.';
 }

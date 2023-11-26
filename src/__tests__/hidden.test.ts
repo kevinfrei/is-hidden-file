@@ -1,5 +1,5 @@
 // This is weird, but it works. The native module thing is kinda picky :/
-import { isHiddenFile } from '../../../lib/esm/index.js';
+import { isHiddenFile } from '../../lib/esm/index.js';
 import * as path from 'path';
 import { platform } from 'os';
 import { cwd } from 'process';
