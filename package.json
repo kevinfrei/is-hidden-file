@@ -3,7 +3,10 @@
   "version": "1.13.1",
   "description": "Check if a file/folder is hidden on node js that works on any platform.",
   "author": "Kevin Frei <kevinfrei@hotmail.com>",
-  "repository": "github:kevinfrei/is-hidden-file",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinfrei/is-hidden-file.git"
+  },
   "os": ["darwin", "linux", "win32"],
   "module": "./lib/esm/index.js",
   "main": "./lib/cjs/index.js",
